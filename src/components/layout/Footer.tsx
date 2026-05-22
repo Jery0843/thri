@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer() {
@@ -6,18 +7,11 @@ export default function Footer() {
     <footer style={{ borderTop: "1px solid var(--border)", marginTop: "auto", background: "var(--background)" }}>
       <div className="container" style={{ padding: "4rem 1.5rem 2rem" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "3rem", marginBottom: "3rem" }}>
-          
+
           {/* Brand */}
           <div>
             <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1.5rem" }}>
-              <div style={{
-                width: "32px", height: "32px", borderRadius: "50%",
-                background: "var(--foreground)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontWeight: "bold", fontSize: "1.2rem", color: "var(--background-solid)"
-              }}>
-                T
-              </div>
+              <Image src="/logo-premium.png" alt="Thrivel Logo" width={32} height={32} style={{ borderRadius: "8px" }} />
               <span style={{ fontSize: "1.5rem", fontWeight: 600, letterSpacing: "-0.05em" }}>Thrivel</span>
             </Link>
             <p className="text-lg" style={{ fontSize: "1rem", marginBottom: "1.5rem" }}>
@@ -72,10 +66,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div style={{ 
-          borderTop: "1px solid var(--border)", 
-          paddingTop: "2rem", 
-          textAlign: "center", 
+        <div style={{
+          borderTop: "1px solid var(--border)",
+          paddingTop: "2rem",
+          textAlign: "center",
           color: "var(--text-muted)",
           fontSize: "0.875rem"
         }}>

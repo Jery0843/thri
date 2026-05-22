@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
@@ -57,15 +58,8 @@ export default function Navbar() {
           alignItems: "center"
         }}
       >
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <div style={{
-            width: "36px", height: "36px", borderRadius: "50%",
-            background: "var(--foreground)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontWeight: "bold", fontSize: "1.2rem", color: "var(--background-solid)"
-          }}>
-            T
-          </div>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }} onClick={() => setMobileMenuOpen(false)}>
+          <Image src="/logo-premium.png" alt="Thrivel Logo" width={36} height={36} style={{ borderRadius: "8px" }} />
           <span style={{ fontSize: "1.25rem", fontWeight: 600, letterSpacing: "-0.05em" }}>Thrivel</span>
         </Link>
 
@@ -107,28 +101,28 @@ export default function Navbar() {
             })}
           </nav>
         </div>
-        
+
         <div className="md-flex" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           {mounted && (
-            <button 
-              onClick={toggleTheme} 
+            <button
+              onClick={toggleTheme}
               style={{ background: "transparent", border: "none", cursor: "pointer", color: "var(--foreground)", display: "flex", alignItems: "center", justifyContent: "center" }}
               aria-label="Toggle theme"
             >
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
             </button>
           )}
-          <Link href="/contact" style={{ 
-            background: "var(--foreground)", 
-            color: "var(--background-solid)", 
-            padding: "0.5rem 1.25rem", 
-            borderRadius: "9999px", 
-            fontWeight: 600, 
+          <Link href="/contact" style={{
+            background: "var(--foreground)",
+            color: "var(--background-solid)",
+            padding: "0.5rem 1.25rem",
+            borderRadius: "9999px",
+            fontWeight: 600,
             fontSize: "0.875rem",
             transition: "transform 0.2s ease"
           }}
-          onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.05)"}
-          onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}
+            onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+            onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}
           >
             Get Started
           </Link>
@@ -137,8 +131,8 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <div className="md-hidden" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           {mounted && (
-            <button 
-              onClick={toggleTheme} 
+            <button
+              onClick={toggleTheme}
               style={{ background: "transparent", border: "none", cursor: "pointer", color: "var(--foreground)", display: "flex", alignItems: "center", justifyContent: "center" }}
             >
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
@@ -197,9 +191,9 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Link 
-              href="/contact" 
-              className="btn-primary" 
+            <Link
+              href="/contact"
+              className="btn-primary"
               onClick={() => setMobileMenuOpen(false)}
               style={{ textAlign: "center", marginTop: "1rem" }}
             >
